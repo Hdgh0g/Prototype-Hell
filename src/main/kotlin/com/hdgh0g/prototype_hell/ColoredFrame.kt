@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component
 import java.awt.Color
 import java.awt.Toolkit
 import java.util.*
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 import javax.annotation.PostConstruct
 import javax.swing.JFrame
 
@@ -20,12 +22,10 @@ abstract class ColoredFrame : JFrame() {
 
     init {
         isUndecorated = true
-        Timer().schedule(object : TimerTask() {
-            override fun run() {
-                isVisible = false
-                dispose()
-            }
-        }, 1000)
+        Executors.newSingleThreadScheduledExecutor().schedule({
+            isVisible = false
+            dispose()
+        }, 1, TimeUnit.SECONDS)
     }
 
     @PostConstruct

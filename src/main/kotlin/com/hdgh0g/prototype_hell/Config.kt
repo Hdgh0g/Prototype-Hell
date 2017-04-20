@@ -1,12 +1,14 @@
 package com.hdgh0g.prototype_hell
 
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Scope
 import java.awt.Color
 import java.util.*
 
 @Configuration
+@ComponentScan
 open class Config {
 
     private val K = 4
