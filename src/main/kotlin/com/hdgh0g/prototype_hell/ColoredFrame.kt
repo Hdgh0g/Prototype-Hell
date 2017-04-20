@@ -2,7 +2,6 @@ package com.hdgh0g.prototype_hell
 
 import com.hdgh0g.prototype_hell.inject_size.InjectSize
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 import java.awt.Color
 import java.awt.Toolkit
@@ -11,8 +10,10 @@ import javax.annotation.PostConstruct
 import javax.swing.JFrame
 
 @Component
-@Scope("prototype")
-open class ColoredFrame : JFrame() {
+abstract class ColoredFrame : JFrame() {
+
+    @Autowired
+    lateinit var utils : Utils
 
     @InjectSize(min = 100, max = 400, step = 50)
     lateinit var squareSize : Integer
@@ -27,19 +28,21 @@ open class ColoredFrame : JFrame() {
         }, 1000)
     }
 
-    @Autowired
-    lateinit var color: Color
-
     @PostConstruct
     fun showOnRandomPlace() {
         setSize(squareSize.toInt(), squareSize.toInt())
         val width = Toolkit.getDefaultToolkit().screenSize.width
         val height = Toolkit.getDefaultToolkit().screenSize.height
         val rand = Random()
-        setLocation(rand.nextInt(width - squareSize.toInt()), rand.nextInt(height - squareSize.toInt()))
-        contentPane.background = color
+        val x = rand.nextInt(width - squareSize.toInt())
+        val y = rand.nextInt(height - squareSize.toInt())
+        val colorForPixel = utils.getColorForPixel(x + squareSize.toInt() / 2, +squareSize.toInt() / 2)
+
+        contentPane.background = transformColor(colorForPixel)
+        setLocation(x, y)
         isVisible = true
         repaint()
     }
 
+    abstract fun transformColor(color : Color) : Color
 }
