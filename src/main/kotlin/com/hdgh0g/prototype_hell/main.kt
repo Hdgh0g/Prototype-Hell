@@ -14,11 +14,13 @@ fun main(args: Array<String>) {
 
     Toolkit.getDefaultToolkit().addAWTEventListener({ event ->
         if (event is MouseEvent && event.id == MOUSE_CLICKED) {
+            context.destroy()
             exit(0)
         }
     }, AWTEvent.MOUSE_EVENT_MASK)
 
     val service = Executors.newFixedThreadPool(2)
+
     while (true) {
         //concurrent create
         for (i in 1..2) {

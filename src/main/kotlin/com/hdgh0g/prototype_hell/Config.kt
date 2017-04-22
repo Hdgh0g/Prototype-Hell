@@ -1,17 +1,24 @@
 package com.hdgh0g.prototype_hell
 
+import com.hdgh0g.prototype_hell.interesting_bean.InterestingBean
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Scope
 import java.awt.Color
 import java.util.*
+import java.util.function.Supplier
+import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
 
 @Configuration
 @ComponentScan
 open class Config {
 
     private val K = 4
+
+    @Autowired
+    lateinit var interestingBean : InterestingBean
 
     @Bean
     @Scope("prototype")
@@ -34,6 +41,11 @@ open class Config {
             }
 
         }
+    }
+
+    @Bean
+    open fun getInterestingBeanSupplier() : Supplier<InterestingBean> {
+        return Supplier { interestingBean }
     }
 
 }
