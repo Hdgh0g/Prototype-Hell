@@ -1,15 +1,15 @@
 package com.hdgh0g.prototype_hell
 
 import com.hdgh0g.prototype_hell.inject_size.InjectSize
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Component
+import jakarta.annotation.PostConstruct
 import java.awt.Color
 import java.awt.Toolkit
-import java.util.*
+import java.util.Random
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
-import javax.annotation.PostConstruct
 import javax.swing.JFrame
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 
 @Component
 abstract class ColoredFrame : JFrame() {

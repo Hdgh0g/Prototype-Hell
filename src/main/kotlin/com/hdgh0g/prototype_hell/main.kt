@@ -1,12 +1,12 @@
 package com.hdgh0g.prototype_hell
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.awt.AWTEvent
 import java.awt.Toolkit
 import java.awt.event.MouseEvent
 import java.awt.event.MouseEvent.MOUSE_CLICKED
-import java.lang.System.exit
 import java.util.concurrent.Executors
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import kotlin.system.exitProcess
 
 
 fun main(args: Array<String>) {
@@ -14,8 +14,8 @@ fun main(args: Array<String>) {
 
     Toolkit.getDefaultToolkit().addAWTEventListener({ event ->
         if (event is MouseEvent && event.id == MOUSE_CLICKED) {
-            context.destroy()
-            exit(0)
+            context.close()
+            exitProcess(0)
         }
     }, AWTEvent.MOUSE_EVENT_MASK)
 
