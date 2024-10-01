@@ -1,12 +1,12 @@
 package com.hdgh0g.prototype_hell
 
 import com.hdgh0g.prototype_hell.interesting_bean.InterestingBean
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
+import jakarta.annotation.PreDestroy
 import java.awt.Color
 import java.awt.Robot
 import java.util.function.Supplier
-import javax.annotation.PreDestroy
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 
 @Service
 open class Utils {

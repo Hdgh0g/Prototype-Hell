@@ -1,10 +1,10 @@
 package com.hdgh0g.prototype_hell.inject_size
 
+import java.util.*
+import java.util.concurrent.locks.ReentrantLock
 import org.springframework.beans.BeansException
 import org.springframework.beans.factory.config.BeanPostProcessor
 import org.springframework.stereotype.Component
-import java.util.*
-import java.util.concurrent.locks.ReentrantLock
 
 @Component
 open class InjectSizeAnnotationBeanPostProcessor : BeanPostProcessor {

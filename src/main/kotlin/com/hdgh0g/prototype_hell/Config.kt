@@ -1,15 +1,14 @@
 package com.hdgh0g.prototype_hell
 
 import com.hdgh0g.prototype_hell.interesting_bean.InterestingBean
+import java.awt.Color
+import java.util.Random
+import java.util.function.Supplier
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Scope
-import java.awt.Color
-import java.util.*
-import java.util.function.Supplier
-import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
 
 @Configuration
 @ComponentScan
