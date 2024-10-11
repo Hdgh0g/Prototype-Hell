@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component
 abstract class ColoredFrame : JFrame() {
 
     @Autowired
-    lateinit var utils : Utils
+    lateinit var utils: Utils
 
     @InjectSize(min = 100, max = 400, step = 50)
-    lateinit var squareSize : Integer
+    lateinit var squareSize: Integer
 
     init {
         isUndecorated = true
@@ -44,5 +44,5 @@ abstract class ColoredFrame : JFrame() {
         repaint()
     }
 
-    abstract fun transformColor(color : Color) : Color
+    abstract fun transformColor(color: Color): Color
 }

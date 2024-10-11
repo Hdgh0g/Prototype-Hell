@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
     while (true) {
         //concurrent create
         for (i in 1..2) {
-            service.submit({ context.getBean(ColoredFrame::class.java) })
+            service.submit { context.getBean(ColoredFrame::class.java) }
         }
         Thread.sleep(100)
     }

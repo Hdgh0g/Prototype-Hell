@@ -5,7 +5,9 @@ import kotlin.annotation.AnnotationTarget.FIELD
 
 @Target(FIELD)
 @Retention(RUNTIME)
-annotation class InjectSize(val min: Int = 100,
-                            val max: Int = 100,
-                            val step: Int = 0)
+annotation class InjectSize(
+    val min: Int = 100,
+    val max: Int = 100,
+    val step: Int = 0
+)
 

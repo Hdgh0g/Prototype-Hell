@@ -12,13 +12,11 @@ import org.springframework.stereotype.Service
 open class Utils {
 
     @Autowired
-    lateinit var interestingMethodSupplier : Supplier<InterestingBean>
+    lateinit var interestingMethodSupplier: Supplier<InterestingBean>
 
     private val robot = Robot()
 
-    fun getColorForPixel(x : Int, y : Int) : Color {
-        return robot.getPixelColor(x, y)
-    }
+    fun getColorForPixel(x: Int, y: Int): Color = robot.getPixelColor(x, y)
 
     @PreDestroy
     fun destroy() {
